@@ -10,6 +10,8 @@ namespace VictorSamuel.Domain.Entities
         public string Phone { get; private set; } = string.Empty;
         public DateOnly BirthDate { get; private set; }
 
+        public Customer Customer { get; private set; } = null!;
+
         public ICollection<UserExternalLogin> UserExternalLogins { get; private set; } = [];
         public ICollection<Event> Events { get; private set; } = [];
 
@@ -27,6 +29,14 @@ namespace VictorSamuel.Domain.Entities
             CpfCnpj = cpfCnpj;
             Phone = phone;
             BirthDate = birthDate;
+        }
+
+        public void SetCustomer(Customer customer)
+        {
+            if (customer == null)
+                throw new Exception("Cliente não pode ser nulo");
+
+            Customer = customer;
         }
 
         public void AddUserExternalLogin(UserExternalLogin externalLogin)
