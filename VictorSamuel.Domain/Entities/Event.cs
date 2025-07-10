@@ -7,12 +7,16 @@ namespace VictorSamuel.Domain.Entities
         public DateTime StartDateTime { get; private set; }
         public DateTime EndDateTime { get; private set; }
 
+        public Guid UserId { get; private set; }
+        public User User { get; private set; } = null!;
+
         private Event() { }
 
-        public Event(DateTime startDateTime, DateTime endDateTime)
+        public Event(DateTime startDateTime, DateTime endDateTime, User user)
         {
             StartDateTime = startDateTime;
             EndDateTime = endDateTime;
+            User = user;
         }
     }
 }

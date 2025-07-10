@@ -11,6 +11,7 @@ namespace VictorSamuel.Domain.Entities
         public DateOnly BirthDate { get; private set; }
 
         public ICollection<UserExternalLogin> UserExternalLogins { get; private set; } = [];
+        public ICollection<Event> Events { get; private set; } = [];
 
         private User() { }
 
